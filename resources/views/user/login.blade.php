@@ -24,14 +24,15 @@
 										<a href="index.html"><img src="images/logo-full.png" alt=""></a>
 									</div> -->
                                     <h1 class="text-center mb-4 text-white">L O G I N</h1>
-                                    <form action="index.html">
+                                    <form action="{{ route('pengaduan.login') }}" method="POST">
+                                    @csrf
                                         <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" value="Masukkan Email">
+                                            <label class="mb-1 text-white"><strong>Username</strong></label>
+                                            <input type="email" class="form-control" placeholder="Username" name="username">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="Masukkan Password">
+                                            <input type="password" class="form-control" placeholder="Password" name="password">
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-white text-black btn-block">Sign Me In</button>

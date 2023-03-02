@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-}); 
-Route::get('/register', function () {
-    return view('register');
-}); 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/masyarakat', function () {
-    return view('masyarakat.masyarakat');
-}); 
+//masyarakat
+Route::get('/', [UserController::class, 'index'])->name('pengaduan.index');
+Route::get('/masyarakat', [UserController::class,'masyarakat'])->name('pengaduan.masyarakat');
+
+Route::get('/login', [UserController::class, 'formLogin'])->name('pengaduan.formLogin');
+Route::post('/login/auth', [UserController::class, 'login'])->name('pengaduan.login');
+
+Route::get('/register', [UserController::class, 'formRegister'])->name('pengaduan.formRegister');
+Route::post('/register/auth', [UserController::class, 'register'])->name('pengaduan.register');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('pengaduan.logout');
+// Route::get('/isipengaduan', [MasyarakatController::class,'isipengaduan'])->name('isipengaduan');
+
+//admin
 Route::get('/admin', function () {
     return view('admin.dashboard');
 }); 

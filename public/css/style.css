@@ -3834,6 +3834,9 @@ input[type="button"].btn-block {
 .card {
   position: relative;
   display: flex;
+  width: 900px;
+  margin-left: 300px;
+  margin-top: 100px;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
@@ -12078,13 +12081,6 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   right: 2.8125rem;
   top: 0.625rem; }
 
-.content-body {
-  margin-left: 21.563rem;
-  z-index: 0;
-  transition: all .2s ease; }
-  @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-    .content-body {
-      margin-left: 17rem; } }
 
 .bell img {
   -webkit-animation: ring 8s .7s ease-in-out infinite;

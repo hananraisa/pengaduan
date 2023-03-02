@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xl-6 col-xxl-12">
-			<div class="row">
+			<div class="row.">
 				<div class="col-sm-6">
 					<div class="card avtivity-card">
 						<div class="card-body">
@@ -88,8 +88,8 @@
 				<div class="col-sm-6">
 					<div class="card avtivity-card">
 						<div class="card-body">
-							<div class="media align-items-center">
-								<span class="activity-icon bgl-warning  mr-md-4 mr-3">
+							<div class="media align-items-enter">
+								<span class.="activity-icon bgl-warning  mr-md-4 mr-3">
 									<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M19.9996 10.0001C22.7611 10.0001 24.9997 7.76148 24.9997 5.00004C24.9997 2.23859 22.7611 0 19.9996 0C17.2382 0 14.9996 2.23859 14.9996 5.00004C14.9996 7.76148 17.2382 10.0001 19.9996 10.0001Z" fill="#FFBC11"/>
 										<path d="M29.7178 36.3838L23.5603 38.6931L26.6224 39.8414C27.9402 40.3307 29.3621 39.6527 29.8413 38.3778C30.0964 37.6976 30.021 36.9851 29.7178 36.3838Z" fill="#FFBC11"/>

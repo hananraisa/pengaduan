@@ -25,25 +25,36 @@
 										<a href="index.html"><img src="images/logo-full.png" alt=""></a>
 									</div> -->
                                     <h1 class="text-center mb-4 text-white">R E G I S T E R</h1>
-                                    <form action="index.html">
+                                    <form action="{{ route('pengaduan.register') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Username</strong></label>
-                                            <input type="text" class="form-control" placeholder="username">
+                                            <label class="mb-1 text-white"><strong>Nik</strong></label>
+                                            <input type="text" name="nik" class="form-control" placeholder="Nik">
                                         </div>
-                                        <div class="form-group">
-                                            <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" placeholder="hello@example.com">
+                                        <div class="form-group d-flex">
+                                            <div class="col-6">
+                                                <label class="mb-1 text-white"><strong>Nama</strong></label>
+                                                <input type="text" name="nama" class="form-control" placeholder="Nama"> 
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="mb-1 text-white"><strong>Username</strong></label>
+                                                <input type="email" name="username" class="form-control" placeholder="Username">
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="Password">
+                                            <input type="password" name="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1 text-white"><strong>No.Telp</strong></label>
+                                            <input type="text" name="telp" class="form-control" placeholder="No Telp">
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button type="submit" class="btn bg-white text-black btn-block">Sign me up</button>
+                                            <button type="sumbit" class="btn bg-white text-black btn-block">Sign me up</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p class="text-white">Already have an account? <a class="text-white" href="/login">Login</a></p>
+                                        <p class="text-white">Already have an account? <a class="text-white" href="{{ route('pengaduan.formLogin') }}">Login</a></p>
                                     </div>
                                 </div>
                             </div>
