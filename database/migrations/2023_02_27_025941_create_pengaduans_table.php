@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pengaduan', function (Blueprint $table) {
-            $table->id('id_pengaduan');
+            $table->id('id');
             $table->dateTime('tgl_pengaduan');
             $table->char('nik', 16);
             $table->text('isi_laporan');

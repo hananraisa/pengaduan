@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Admin</title>
     <!-- Favicon icon -->
-	<link rel="stylesheet" href="./vendor/chartist/css/chartist.min.css">
-    <link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="./vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="../vendor/chartist/css/chartist.min.css">
+    <link href="../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="../vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -104,18 +104,19 @@
         <div class="deznav">
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
-                    <li><a href="javascript:void()" class="ai-icon" aria-expanded="false">
+                    <li><a href="{{ route('admin.index')}}" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
-                    </li>
+					</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-network"></i>
 							<span class="nav-text">Table</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
+                            <li><a href="{{ route('pengaduan.index')}}">Pengaduan</a></li>
+                            <li><a href="table-datatable-basic.html">Petugas</a></li>
+                            <li><a href="table-datatable-basic.html">Masyarakat</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -123,8 +124,8 @@
 							<span class="nav-text">Pages</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="/register">Register</a></li>
-                            <li><a href="/login">Login</a></li>
+                            <li><a href="./page-register.html">Register</a></li>
+                            <li><a href="./page-login.html">Login</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -176,21 +177,21 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="./vendor/global/global.min.js"></script>
-	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
-    <script src="./js/custom.min.js"></script>
-	<script src="./js/deznav-init.js"></script>
-	<script src="./vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="../vendor/global/global.min.js"></script>
+	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="../js/custom.min.js"></script>
+	<script src="../js/deznav-init.js"></script>
+	<script src="../vendor/owl-carousel/owl.carousel.js"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="./vendor/peity/jquery.peity.min.js"></script>
+    <script src="../vendor/peity/jquery.peity.min.js"></script>
 	
 	<!-- Apex Chart -->
-	<script src="./vendor/apexchart/apexchart.js"></script>
+	<script src="../vendor/apexchart/apexchart.js"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="./js/dashboard/dashboard-1.js"></script>
+	<script src="../js/dashboard/dashboard-1.js"></script>
 	<script>
 		function carouselReview(){
 			/*  testimonial one function by = owl.carousel.js */

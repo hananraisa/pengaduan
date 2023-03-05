@@ -48,9 +48,9 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
+                        <!-- <ul class="nav">
                             <li class=""><a href="{{ route('pengaduan.logout') }}" class="menu-item">Welcome! {{ Auth::guard('masyarakat')->user()->nama }}</a></li>
-                        </ul>
+                        </ul> -->
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -88,6 +88,9 @@
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="about">
         <div class="container">
+            @if(Auth::guard('masyarakat')->check())
+            <h2 class="text-center mb-5">Welcome! <a href="{{ route('pengaduan.logout') }}" class="menu-item" style="color: #fba70b;">{{ Auth::guard('masyarakat')->user()->nama }}</a></h2>
+            @endauth
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
@@ -96,7 +99,7 @@
                             <h2>01</h2>
                             <img src="assets/images/features-icon-1.png" alt="">
                             <h4>Pengaduan Masyarakat</h4>
-                            <a href="/isipengaduan" class="main-button">
+                            <a href="{{ route('pengaduan.isipengaduan') }}" class="main-button">
                                 Isi Pengaduan
                             </a>
                         </div>
@@ -109,7 +112,7 @@
                             <h2>02</h2>
                             <img src="assets/images/features-icon-2.png" alt="">
                             <h4>Histori Pengaduan</h4>
-                            <a href="/" class="main-button">
+                            <a href="{{ route('pengaduan.historipengaduan') }}" class="main-button">
                                 Lihat Pengaduan
                             </a>
                         </div>

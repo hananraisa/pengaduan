@@ -48,9 +48,9 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
+                        <!-- <ul class="nav">
                             <li class=""><a href="" class="menu-item">Welcome!</a></li>
-                        </ul>
+                        </ul> -->
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>

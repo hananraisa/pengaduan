@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use App\Http\Controllers\User\UserController;
 |
 */
 
-//masyarakat
+//Masyarakat
 Route::get('/', [UserController::class, 'index'])->name('pengaduan.index');
 Route::get('/masyarakat', [UserController::class,'masyarakat'])->name('pengaduan.masyarakat');
 
@@ -24,10 +26,24 @@ Route::post('/login/auth', [UserController::class, 'login'])->name('pengaduan.lo
 Route::get('/register', [UserController::class, 'formRegister'])->name('pengaduan.formRegister');
 Route::post('/register/auth', [UserController::class, 'register'])->name('pengaduan.register');
 
+Route::post('/store', [UserController::class, 'storePengaduan'])->name('pengaduan.stores');
+
 Route::get('/logout', [UserController::class, 'logout'])->name('pengaduan.logout');
-// Route::get('/isipengaduan', [MasyarakatController::class,'isipengaduan'])->name('isipengaduan');
+Route::get('/isipengaduan', [UserController::class,'isipengaduan'])->name('pengaduan.isipengaduan');
+Route::get('/historipengaduan/{siapa?}', [UserController::class,'historipengaduan'])->name('pengaduan.historipengaduan');
+
+//Admin
+Route::prefix('admin')->group(function () {
+
+    Route::get('/', [AdminController::class, 'formlogin'])->name('admin.formlogin');
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    
+    Route::resource('pengaduan', PengaduanController::class);
+});
 
 //admin
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-}); 
+// Route::get('/admin', function () {
+//     return view('admin.dashboard');
+// }); 

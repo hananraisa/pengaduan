@@ -22,6 +22,11 @@ class UserController extends Controller
         return view('user.masyarakat');
     }
 
+    public function isipengaduan()
+    {
+        return view('user.isipengaduan');
+    }
+
     public function formLogin()
     {
         return view('user.login');
@@ -91,7 +96,7 @@ class UserController extends Controller
     {
         Auth::guard('masyarakat')->logout();
 
-        return redirect()->back();
+        return redirect()->route('pengaduan.formLogin');
     }
 
     public function storePengaduan(Request $request)
@@ -125,13 +130,13 @@ class UserController extends Controller
         ]);
 
         if ($pengaduan) {
-            return redirect()->route('pelmas.laporan', 'me')->with(['pengaduan' => 'Berhasil terkirim!', 'type' => 'success']);
+            return redirect()->route('pengaduan.historipengaduan', 'me')->with(['pengaduan' => 'Berhasil terkirim!', 'type' => 'success']);
         } else {
             return redirect()->back()->with(['pengaduan' => 'Gagal terkirim!', 'type' => 'danger']);
         }
     }
 
-    public function laporan($siapa = '')
+    public function historipengaduan($siapa = '')
     {
         $terverifikasi = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->get()->count();
         $proses = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'proses']])->get()->count();
@@ -142,11 +147,11 @@ class UserController extends Controller
         if ($siapa == 'me') {
             $pengaduan = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->orderBy('tgl_pengaduan', 'desc')->get();
 
-            return view('user.laporan', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
+            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
         } else {
             $pengaduan = Pengaduan::where([['nik', '!=', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->orderBy('tgl_pengaduan', 'desc')->get();
 
-            return view('user.laporan', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
+            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
         }
     }
 }

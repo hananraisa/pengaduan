@@ -30,17 +30,17 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="/insertcatatan" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('pengaduan.stores') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-row">
-                                    <div class="form-group col-12">
+                                    <!-- <div class="form-group col-12">
                                         <label>Tanggal</label>
                                         <input type="date" name="tanggal" class="form-control">
-                                    </div>
+                                    </div> -->
+
                                     <div class="form-group col-12">
                                         <label>Isi Laporan</label>
-                                        <textarea class="form-control" rows="4" id="comment"></textarea>
-                                        <!-- <textarea type="text" name="Isi Laporan" class="form-control"> -->
+                                        <textarea name="isi_laporan" class="form-control" rows="4" id="comment">{{ old('isi_laporan') }}</textarea>
                                     </div>
                                     <div class="form-group col-12">
                                         <label>Foto</label>
