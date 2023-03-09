@@ -23,8 +23,8 @@
         ***********************************-->
             <!-- row -->
 			<div class="container-fluid">
-                <div class="col-lg-12"> 
-                <div class="card">
+                <div class="col-6 mt-5" style="margin-left: 400px;"> 
+                <div class="card">      
                     <div class="card-header">
                         <h4 class="card-title">Isi Pengaduan</h4>
                     </div>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PengaduanController;
+use App\Http\Controllers\Admin\TanggapanController;
+use App\Http\Controllers\Admin\PetugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use App\Http\Controllers\Admin\PengaduanController;
 */
 
 //Masyarakat
-Route::get('/', [UserController::class, 'index'])->name('pengaduan.index');
+Route::get('/', [UserController::class, 'index']);
 Route::get('/masyarakat', [UserController::class,'masyarakat'])->name('pengaduan.masyarakat');
 
 Route::get('/login', [UserController::class, 'formLogin'])->name('pengaduan.formLogin');
@@ -41,9 +43,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
     
     Route::resource('pengaduan', PengaduanController::class);
+    Route::resource('petugas', PetugasController::class);
+    Route::resource('masyarakat', MasyarakatController::class);
+
+    Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
 });
 
-//admin
-// Route::get('/admin', function () {
-//     return view('admin.dashboard');
-// }); 

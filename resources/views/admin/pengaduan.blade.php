@@ -15,11 +15,11 @@
                     <h4 class="card-title">Table Pengaduan</h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table">
                         <table id="example4" class="display min-w850">
                             <thead>
                                 <tr>
-                                    <th>Roll No</th>
+                                    <th>No</th>
                                     <th>Tanggal</th>
                                     <th>Nik</th>
                                     <th>Isi Laporan</th>
@@ -33,9 +33,19 @@
                                 <tr>
                                     <td>{{$k += 1}}</td>
                                     <td>{{$v->tgl_pengaduan}}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$v->nik}}</td>
+                                    <td>{{$v->isi_laporan}}</td>
+                                    <td><img src="{{ Storage::url($v->foto) }}" alt="Foto Pengaduan" class="embed-responsive" style="width:200px;"></td>
+                                    <td>
+                                        @if ($v->status == '0')
+                                            <a href="#" class="badge badge-danger">Pending</a>
+                                        @elseif($v->status == 'proses')
+                                            <a href="#" class="badge badge-warning text-white">Proses</a>
+                                        @else
+                                            <a href="#" class="badge badge-success">Selesai</a>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{ route('pengaduan.show', $v->id) }}" style="text-decoration: underline">Tanggapan</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

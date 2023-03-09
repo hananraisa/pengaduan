@@ -121,6 +121,8 @@ class UserController extends Controller
 
         date_default_timezone_set('Asia/Bangkok');
 
+        $userHistory = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->get();
+
         $pengaduan = Pengaduan::create([
             'tgl_pengaduan' => date('Y-m-d h:i:s'),
             'nik' => Auth::guard('masyarakat')->user()->nik,
@@ -141,17 +143,18 @@ class UserController extends Controller
         $terverifikasi = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->get()->count();
         $proses = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'proses']])->get()->count();
         $selesai = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'selesai']])->get()->count();
+        $userHistory = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->get();
 
         $hitung = [$terverifikasi, $proses, $selesai];
 
         if ($siapa == 'me') {
             $pengaduan = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->orderBy('tgl_pengaduan', 'desc')->get();
 
-            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
+            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa, 'userHistory' => $userHistory]);
         } else {
             $pengaduan = Pengaduan::where([['nik', '!=', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->orderBy('tgl_pengaduan', 'desc')->get();
 
-            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
+            return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa, 'userHistory' => $userHistory]);
         }
     }
 }

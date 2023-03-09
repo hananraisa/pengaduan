@@ -13,9 +13,9 @@ class Tanggapan extends Model
 
     protected $primaryKey = 'id_tanggapan';
     protected $fillable = [
-        'id_pengaduan',
+        'pengaduan_id',
         'tgl_tanggapan',
         'tanggapan',
-        'id_petugas'
+        'petugas_id'
     ];
 }

@@ -76,9 +76,9 @@
 								</div>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/17.jpg" width="20" alt=""/>
+                                    <img src="./images/profile/pp.jpg" width="20" alt=""/>
 									<div class="header-info">
-										<span class="text-black"><strong>Hanan Raisa</strong></span>
+										<span class="text-black"><strong>{{ Auth::guard('admin')->user()->nama_petugas}}</strong></span>
 										<p class="fs-12 mb-0">Super Admin</p>
 									</div>
                                 </a>
@@ -115,11 +115,11 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('pengaduan.index')}}">Pengaduan</a></li>
-                            <li><a href="table-datatable-basic.html">Petugas</a></li>
+                            <li><a href="{{ route('petugas.index')}}">Petugas</a></li>
                             <li><a href="table-datatable-basic.html">Masyarakat</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-layer-1"></i>
 							<span class="nav-text">Pages</span>
 						</a>
@@ -127,7 +127,7 @@
                             <li><a href="./page-register.html">Register</a></li>
                             <li><a href="./page-login.html">Login</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
 			</div>
         </div>
