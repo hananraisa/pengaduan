@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\TanggapanController;
 use App\Http\Controllers\Admin\PetugasController;
+use App\Http\Controllers\Admin\MasyarakatController;
 
 /*
 |--------------------------------------------------------------------------

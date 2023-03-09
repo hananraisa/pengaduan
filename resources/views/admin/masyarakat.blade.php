@@ -4,7 +4,7 @@
     <div class="page-titles">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-			<li class="breadcrumb-item active"><a href="javascript:void(0)">Data Petugas</a></li>
+			<li class="breadcrumb-item active"><a href="javascript:void(0)">Data Masyarakat</a></li>
 		</ol>
     </div>
     <!-- row -->
@@ -20,20 +20,20 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
                                     <th>Nik</th>
+                                    <th>Nama</th>
+                                    <th>Username</th>
                                     <th>No Telp</th>
-                                    <th>Email</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach( $data as $masyarakat )
+                            @foreach( $masyarakat as $k => $v )
                                 <tr>
                                     <td>{{$k += 1}}</td>
-                                    <td>{{$masyarakat->name}}</td>
-                                    <td>{{$masyarakat->nik}}</td>
-                                    <td>{{$masyarakat->telp}}</td>
-                                    <td>{{$masyarakat->email}}</td>
+                                    <td>{{$v->nik}}</td>
+                                    <td>{{$v->nama}}</td>
+                                    <td>{{$v->username}}</td>
+                                    <td>{{$v->telp}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

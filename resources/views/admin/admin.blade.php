@@ -116,7 +116,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{ route('pengaduan.index')}}">Pengaduan</a></li>
                             <li><a href="{{ route('petugas.index')}}">Petugas</a></li>
-                            <li><a href="table-datatable-basic.html">Masyarakat</a></li>
+                            <li><a href="{{ route('masyarakat.index')}}">Masyarakat</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
