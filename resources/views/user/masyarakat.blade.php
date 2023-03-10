@@ -9,7 +9,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Masyarakat</title>
+    <title>Pengaduan Masyarakat</title>
 <!--Lava Landing Page https://templatemo.com/tm-540-lava-landing-page-->
 
     <!-- Additional CSS Files -->
@@ -74,8 +74,7 @@
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Pengaduan<em> Masyarakat</em></h1>
                         <p>Penyampaian keluhan oleh masyarakat kepada pemerintah atas pelayanan yang tidak sesuai dengan standar pelayanan, atau pengabaian kewajiban dan/atau pelanggaran larangan.</p> 
-                        <a href="{{ route('pengaduan.formRegister') }}" class="main-button-slider-1">REGISTER</a>
-                        <a href="{{ route('pengaduan.formLogin') }}" class="main-button-slider-2">LOGIN</a>
+                        <a href="{{ route('pengaduan.logout') }}" class="main-button-slider-2">Logout</a>
                         <!-- <a href="/isipengaduan" class="main-button-slider-1">Isi Pengaduan</a> -->
                     </div>
                 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin</title>
+    <title>Pengaduan Masyarakat</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="../vendor/chartist/css/chartist.min.css">
     <link href="../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -79,11 +79,11 @@
                                     <img src="./images/profile/pp.jpg" width="20" alt=""/>
 									<div class="header-info">
 										<span class="text-black"><strong>{{ Auth::guard('admin')->user()->nama_petugas}}</strong></span>
-										<p class="fs-12 mb-0">Super Admin</p>
+										<p class="fs-12 mb-0">{{ Auth::guard('admin')->user()->level}}</p>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="/login" class="dropdown-item ai-icon">
+                                    <a href="{{ route('admin.logout')}}" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -115,8 +115,10 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('pengaduan.index')}}">Pengaduan</a></li>
+                            @if (Auth::guard('admin')->user()->level=='admin')
                             <li><a href="{{ route('petugas.index')}}">Petugas</a></li>
                             <li><a href="{{ route('masyarakat.index')}}">Masyarakat</a></li>
+                            @endif
                         </ul>
                     </li>
                     <!-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

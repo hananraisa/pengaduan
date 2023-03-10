@@ -19,34 +19,50 @@ use App\Http\Controllers\Admin\MasyarakatController;
 |
 */
 
-//Masyarakat
 Route::get('/', [UserController::class, 'index']);
-Route::get('/masyarakat', [UserController::class,'masyarakat'])->name('pengaduan.masyarakat');
 
-Route::get('/login', [UserController::class, 'formLogin'])->name('pengaduan.formLogin');
-Route::post('/login/auth', [UserController::class, 'login'])->name('pengaduan.login');
+//Masyarakat
+Route::middleware(['isMasyarakat'])->group(function () {
+    Route::get('/masyarakat', [UserController::class,'masyarakat'])->name('pengaduan.masyarakat');
 
-Route::get('/register', [UserController::class, 'formRegister'])->name('pengaduan.formRegister');
-Route::post('/register/auth', [UserController::class, 'register'])->name('pengaduan.register');
+    Route::post('/store', [UserController::class, 'storePengaduan'])->name('pengaduan.stores');
+    Route::get('/isipengaduan', [UserController::class,'isipengaduan'])->name('pengaduan.isipengaduan');
+    Route::get('/historipengaduan/{siapa?}', [UserController::class,'historipengaduan'])->name('pengaduan.historipengaduan');
 
-Route::post('/store', [UserController::class, 'storePengaduan'])->name('pengaduan.stores');
+    Route::get('/logout', [UserController::class, 'logout'])->name('pengaduan.logout');
+});
 
-Route::get('/logout', [UserController::class, 'logout'])->name('pengaduan.logout');
-Route::get('/isipengaduan', [UserController::class,'isipengaduan'])->name('pengaduan.isipengaduan');
-Route::get('/historipengaduan/{siapa?}', [UserController::class,'historipengaduan'])->name('pengaduan.historipengaduan');
+Route::middleware(['isGuest'])->group(function () {
+    Route::get('/login', [UserController::class, 'formLogin'])->name('pengaduan.formLogin');
+    Route::post('/login/auth', [UserController::class, 'login'])->name('pengaduan.login');
+
+    Route::get('/register', [UserController::class, 'formRegister'])->name('pengaduan.formRegister');
+    Route::post('/register/auth', [UserController::class, 'register'])->name('pengaduan.register');
+});
 
 //Admin
 Route::prefix('admin')->group(function () {
 
-    Route::get('/', [AdminController::class, 'formlogin'])->name('admin.formlogin');
-    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
-    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    Route::middleware(['isAdmin'])->group(function () {
     
-    Route::resource('pengaduan', PengaduanController::class);
-    Route::resource('petugas', PetugasController::class);
-    Route::resource('masyarakat', MasyarakatController::class);
+        Route::resource('petugas', PetugasController::class);
+        Route::resource('masyarakat', MasyarakatController::class);
 
-    Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
+    });
+
+    Route::middleware(['isPetugas'])->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+    
+        Route::resource('pengaduan', PengaduanController::class);
+
+        Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
+
+        Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    });
+
+    Route::middleware(['isGuest'])->group(function () {
+        Route::get('/', [AdminController::class, 'formlogin'])->name('admin.formlogin');
+        Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    });    
 });
 

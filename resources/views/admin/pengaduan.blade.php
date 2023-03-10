@@ -35,7 +35,7 @@
                                     <td>{{$v->tgl_pengaduan}}</td>
                                     <td>{{$v->nik}}</td>
                                     <td>{{$v->isi_laporan}}</td>
-                                    <td><img src="{{ Storage::url($v->foto) }}" alt="Foto Pengaduan" class="embed-responsive" style="width:200px;"></td>
+                                    <td><img src="{{ Storage::url($v->foto) }}" alt="Foto Pengaduan" class="embed-responsive" width="20px"></td>
                                     <td>
                                         @if ($v->status == '0')
                                             <a href="#" class="badge badge-danger">Pending</a>
