@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -156,5 +157,11 @@ class UserController extends Controller
 
             return view('user.histori', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa, 'userHistory' => $userHistory]);
         }
+    }
+    public function tanggapan()
+    { 
+        $tanggapan = Tanggapan::all();
+    
+        return view('user.tanggapan', ['tanggapan' => $tanggapan]);
     }
 }

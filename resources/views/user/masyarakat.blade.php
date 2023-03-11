@@ -87,9 +87,7 @@
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="about">
         <div class="container">
-            @if(Auth::guard('masyarakat')->check())
             <h2 class="text-center mb-5">Welcome! <a href="{{ route('pengaduan.logout') }}" class="menu-item" style="color: #fba70b;">{{ Auth::guard('masyarakat')->user()->nama }}</a></h2>
-            @endauth
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
@@ -110,9 +108,9 @@
                         <div class="features-icon">
                             <h2>02</h2>
                             <img src="assets/images/features-icon-2.png" alt="">
-                            <h4>Histori Pengaduan</h4>
-                            <a href="{{ route('pengaduan.historipengaduan') }}" class="main-button">
-                                Lihat Pengaduan
+                            <h4>Tanggapan</h4>
+                            <a href="{{ route('pengaduan.tanggapan') }}" class="main-button">
+                                Lihat Tanggapan
                             </a>
                         </div>
                     </div>

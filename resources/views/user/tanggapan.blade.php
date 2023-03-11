@@ -77,6 +77,7 @@
                         <p>Penyampaian keluhan oleh masyarakat kepada pemerintah atas pelayanan yang tidak sesuai dengan
                             standar pelayanan, atau pengabaian kewajiban dan/atau pelanggaran larangan.</p>
                         <a href="{{ route('pengaduan.logout') }}" class="main-button-slider-2">Logout</a>
+                        <!-- <a href="/isipengaduan" class="main-button-slider-1">Isi Pengaduan</a> -->
                     </div>
                 </div>
             </div>
@@ -87,73 +88,25 @@
     <div class="container">
         <h2 class="text-center mb-5">Welcome! <a href="{{ route('pengaduan.logout') }}" class="menu-item" style="color: #fba70b;">{{ Auth::guard('masyarakat')->user()->nama }}</a></h2>
         <div class="table-responsive">
-            <table class="display min-w850 dataTable table table-responsive-md" role="grid" aria-describedby="example_info" id="petugasTable">
+        <table class="display min-w850 dataTable table table-responsive-md" role="grid" aria-describedby="example_info" id="petugasTable">
                 <thead>
                     <tr class="text-center">
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No
                         </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                            Nama Pelapor </th>
+                            Tanggal </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                            Isi Laporan</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                            Foto</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                            Status</th>
+                            Tanggapan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- @foreach( $pengaduan as $k => $v )
-                    <tr class="text-sm font-weight-bold mb-0 text-center">
-                        <td>{{$k += 1}}</td>
-                        <td>{{$v->user->nama}}</td>
-                        <td>{{$v->isi_laporan}}</td>
-                        <td>
-                            @if ($v->foto != null)
-                            <img src="{{ Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul_laporan }}"
-                                class="gambar-lampiran">
-                            @endif
-                            @if ($v->tanggapan != null)
-                            {{ $v->tanggapan->petugas->nama_petugas }}
-                            {{ $v->tanggapan->tanggapan }}
-                            @endif
-                        </td>
-                        <td>
-                            @if ($v->status == '0')
-                            Pending
-                            @elseif($v->status == 'proses')
-                            {{ ucwords($v->status) }}
-                            @else
-                            {{ ucwords($v->status) }}
-                            @endif
-                        </td>
-                        @endforeach -->
-                        @foreach($userHistory as $row)
-                            <tr class="text-sm font-weight-bold mb-0 text-center">
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->user->nama }}</td>
-                                <td>{{ $row->isi_laporan }}</td>
-                                <td>
-                                    @if ($row->foto != null)
-                                    <img src="{{ Storage::url($row->foto) }}" alt="{{ 'Gambar '.$row->judul_laporan }}"
-                                        class="gambar-lampiran" width="100px">
-                                    @endif
-                                    @if ($row->tanggapan != null)
-                                    {{ $row->tanggapan->petugas->nama_petugas }}
-                                    {{ $row->tanggapan->tanggapan }}
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($row->status == '0')
-                                    <a href="#" class="badge badge-danger">Pending</a>
-                                    @elseif($row->status == 'proses')
-                                    <a href="#" class="badge badge-warning text-white">Proses</a>
-                                    @else
-                                    <a href="#" class="badge badge-success">Selesai</a>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
+                    @foreach( $tanggapan as $k => $v )
+                        <tr>
+                            <td>{{$k += 1}}</td>
+                            <td>{{$v->tgl_tanggapan}}</td>
+                            <td>{{$v->tanggapan}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -172,7 +125,7 @@
         </div>
     </section>
     <!-- ***** Features Big Item End ***** -->
-
+    
     <!-- jQuery -->
     <script src="../assets/js/jquery-2.1.0.min.js"></script>
 

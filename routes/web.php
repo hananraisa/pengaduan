@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\TanggapanController;
 use App\Http\Controllers\Admin\PetugasController;
 use App\Http\Controllers\Admin\MasyarakatController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Middleware\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::middleware(['isMasyarakat'])->group(function () {
     Route::post('/store', [UserController::class, 'storePengaduan'])->name('pengaduan.stores');
     Route::get('/isipengaduan', [UserController::class,'isipengaduan'])->name('pengaduan.isipengaduan');
     Route::get('/historipengaduan/{siapa?}', [UserController::class,'historipengaduan'])->name('pengaduan.historipengaduan');
+    Route::get('/tanggapan', [UserController::class,'tanggapan'])->name('pengaduan.tanggapan');
 
     Route::get('/logout', [UserController::class, 'logout'])->name('pengaduan.logout');
 });
@@ -47,6 +50,8 @@ Route::prefix('admin')->group(function () {
     
         Route::resource('petugas', PetugasController::class);
         Route::resource('masyarakat', MasyarakatController::class);
+
+        Route::get('laporan', [LaporanController::class, 'laporan'])->name('laporan.index');
 
     });
 

@@ -13,6 +13,9 @@
             <div class="card" >
                 <div class="card-header">
                     <h4 class="card-title">Table Pengaduan</h4>
+                    @if ($pengaduan ?? '')
+                    <button type="button" class="btn btn-rounded btn-danger"><span class="btn-icon-left text-danger"><i class="fa fa-download color-danger"></i></span>Export PDF</button>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table">
@@ -21,11 +24,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
-                                    <th>Nik</th>
                                     <th>Isi Laporan</th>
-                                    <th>Foto</th>
-                                    <th>Status </th>
-                                    <th>Action</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,9 +33,7 @@
                                 <tr>
                                     <td>{{$k += 1}}</td>
                                     <td>{{$v->tgl_pengaduan}}</td>
-                                    <td>{{$v->nik}}</td>
                                     <td>{{$v->isi_laporan}}</td>
-                                    <td><img src="{{ Storage::url($v->foto) }}" alt="Foto Pengaduan" class="embed-responsive" width="20px"></td>
                                     <td>
                                         @if ($v->status == '0')
                                             <a href="#" class="badge badge-danger">Pending</a>
@@ -45,7 +43,6 @@
                                             <a href="#" class="badge badge-success">Selesai</a>
                                         @endif
                                     </td>
-                                    <td><a href="{{ route('pengaduan.show', $v->id) }}" style="text-decoration: underline">Tanggapan</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
