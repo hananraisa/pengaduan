@@ -34,12 +34,12 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Cetak Laporan</h4>
-                @if ($pengaduan ?? '')
+                @if ($tanggapan ?? '')
                 <a href="{{ route('laporan.cetakLaporan', ['from' => $from, 'to' => $to]) }}" class="btn btn-rounded btn-danger"><span class="btn-icon-left text-danger"><i class="fa fa-download color-danger"></i></span>Export PDF</a>
                 @endif
             </div>
             <div class="card-body">
-                @if ($pengaduan ?? '')
+                @if ($tanggapan ?? '')
                     <div class="table">
                         <table id="example4" class="display min-w850">
                             <thead>
@@ -47,15 +47,19 @@
                                     <th>No</th>
                                     <th>Tanggal</th>
                                     <th>Isi Laporan</th>
+                                    <th>Tanggapan</th>
+                                    <th>Nama Petugas</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach( $pengaduan as $k => $v )
+                            @foreach( $tanggapan as $k => $v )
                                 <tr>
                                     <td>{{$k += 1}}</td>
-                                    <td>{{$v->tgl_pengaduan}}</td>
+                                    <td>{{$v->tgl_tanggapan}}</td>
                                     <td>{{$v->isi_laporan}}</td>
+                                    <td>{{$v->tanggapan}}</td>
+                                    <td>{{$v->nama_petugas}}</td>
                                     <td>
                                         @if ($v->status == '0')
                                             <a href="#" class="badge badge-danger">Pending</a>

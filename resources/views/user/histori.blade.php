@@ -103,7 +103,7 @@
                             Status</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     <!-- @foreach( $pengaduan as $k => $v )
                     <tr class="text-sm font-weight-bold mb-0 text-center">
                         <td>{{$k += 1}}</td>

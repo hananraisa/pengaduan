@@ -108,7 +108,7 @@
                             <td>{{$k += 1}}</td>
                             <td>{{$v->isi_laporan}}</td>
                             <td>{{$v->tgl_tanggapan}}</td>
-                            <td>{{$v->tanggapan}}</td>
+                            <td>{{$v->tanggapan}}</td> 
                         </tr>
                     @endforeach
                 </tbody>

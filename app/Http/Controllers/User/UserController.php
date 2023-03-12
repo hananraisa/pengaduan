@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -160,9 +161,16 @@ class UserController extends Controller
     }
     public function tanggapan()
     { 
-        $tanggapan = Tanggapan::all();
-        $pengaduan = Pengaduan::all();
+        // $tanggapan = Tanggapan::all();
+        // $pengaduan = Pengaduan::all();
 
-        return view('user.tanggapan', ['tanggapan' => $tanggapan, 'pengaduan' => $pengaduan]);
+        // return view('user.tanggapan', ['tanggapan' => $tanggapan, 'pengaduan' => $pengaduan]);
+
+        $tanggapan = DB::table('tanggapan')
+        ->join('pengaduan','pengaduan.id', '=', 'tanggapan.pengaduan_id')
+        ->get();
+
+        //tampilkan view barang dan kirim datanya ke view tersebut
+        return view('user.tanggapan')->with('tanggapan', $tanggapan);
     }
 }

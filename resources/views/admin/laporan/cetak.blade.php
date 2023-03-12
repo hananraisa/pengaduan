@@ -21,15 +21,19 @@
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>Isi Laporan</th>
+                    <th>Tanggapan</th>
+                    <th>Nama Petugas</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pengaduan as $k => $v)
+                @foreach ($tanggapan as $k => $v)
                     <tr>
                         <td>{{ $k += 1 }}</td>
                         <td>{{ $v->tgl_pengaduan}}</td>
                         <td>{{ $v->isi_laporan }}</td>
+                        <td>{{ $v->tanggapan }}</td>
+                        <td>{{$v->nama_petugas}}</td>
                         <td>{{ $v->status == '0' ? 'Pending' : ucwords($v->status) }}</td>
                     </tr>
                 @endforeach
