@@ -47,11 +47,17 @@ Route::middleware(['isGuest'])->group(function () {
 Route::prefix('admin')->group(function () {
 
     Route::middleware(['isAdmin'])->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
     
         Route::resource('petugas', PetugasController::class);
         Route::resource('masyarakat', MasyarakatController::class);
 
-        Route::get('laporan', [LaporanController::class, 'laporan'])->name('laporan.index');
+        Route::post('tanggapan/createOrUpdate', [TanggapanController::class, 'createOrUpdate'])->name('tanggapan.createOrUpdate');
+
+        Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+
+        Route::post('getLaporan', [LaporanController::class, 'getLaporan'])->name('laporan.getLaporan');
+        Route::get('laporan/cetak/{from}/{to}', [LaporanController::class, 'cetakLaporan'])->name('laporan.cetakLaporan');
 
     });
 

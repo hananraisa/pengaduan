@@ -75,7 +75,8 @@
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Pengaduan<em> Masyarakat</em></h1>
                         <p>Penyampaian keluhan oleh masyarakat kepada pemerintah atas pelayanan yang tidak sesuai dengan
-                            standar pelayanan, atau pengabaian kewajiban dan/atau pelanggaran larangan.</p>
+                        standar pelayanan, atau pengabaian kewajiban dan/atau pelanggaran larangan.</p>
+                        <a href="{{ route('pengaduan.masyarakat') }}" class="main-button-slider-1">Masyarakat</a>
                         <a href="{{ route('pengaduan.logout') }}" class="main-button-slider-2">Logout</a>
                         <!-- <a href="/isipengaduan" class="main-button-slider-1">Isi Pengaduan</a> -->
                     </div>
@@ -90,9 +91,11 @@
         <div class="table-responsive">
         <table class="display min-w850 dataTable table table-responsive-md" role="grid" aria-describedby="example_info" id="petugasTable">
                 <thead>
-                    <tr class="text-center">
+                    <tr class="">
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No
                         </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                            Isi Laporan </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                             Tanggal </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
@@ -103,6 +106,7 @@
                     @foreach( $tanggapan as $k => $v )
                         <tr>
                             <td>{{$k += 1}}</td>
+                            <td>{{$v->isi_laporan}}</td>
                             <td>{{$v->tgl_tanggapan}}</td>
                             <td>{{$v->tanggapan}}</td>
                         </tr>

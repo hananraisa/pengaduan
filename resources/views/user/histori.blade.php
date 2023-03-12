@@ -76,6 +76,7 @@
                         <h1>Pengaduan<em> Masyarakat</em></h1>
                         <p>Penyampaian keluhan oleh masyarakat kepada pemerintah atas pelayanan yang tidak sesuai dengan
                             standar pelayanan, atau pengabaian kewajiban dan/atau pelanggaran larangan.</p>
+                        <a href="{{ route('pengaduan.masyarakat') }}" class="main-button-slider-1">Masyarakat</a>
                         <a href="{{ route('pengaduan.logout') }}" class="main-button-slider-2">Logout</a>
                     </div>
                 </div>

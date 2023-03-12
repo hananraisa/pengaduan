@@ -161,7 +161,8 @@ class UserController extends Controller
     public function tanggapan()
     { 
         $tanggapan = Tanggapan::all();
-    
-        return view('user.tanggapan', ['tanggapan' => $tanggapan]);
+        $pengaduan = Pengaduan::all();
+
+        return view('user.tanggapan', ['tanggapan' => $tanggapan, 'pengaduan' => $pengaduan]);
     }
 }
